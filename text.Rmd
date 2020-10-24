@@ -1,0 +1,14 @@
+---
+title: "ReadMe"
+author: "Firman"
+date: "24/10/2020"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+The tidy data were made by using the data from the UCI HR DataSet

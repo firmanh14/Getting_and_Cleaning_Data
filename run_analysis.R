@@ -65,8 +65,10 @@ censor_test_XYZ <- rbind (testBodyAccX, testBodyAccY, testBodyAccZ, testBodyGyro
 ## merge the data
 DataCompile <- rbind (train, test, fill = TRUE)
 
-##cleaning the data
+##cleaning the data and make the data become more comprehensive
 
 DataCompile[["SubjectNum"]] <- as.factor(DataCompile[, SubjectNum])
 DataCompile <- data.table::melt(data = DataCompile, id = c("SubjectNum", "Activity"))
 DataCompile <- data.table::dcast(data = DataCompile, SubjectNum + Activity ~ variable, fun.aggregate = mean)
+
+data.table::fwrite(x = DataCompile, file = "tidyDataFinal.csv", quote = FALSE)
